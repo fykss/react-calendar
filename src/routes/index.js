@@ -1,13 +1,14 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
-import App from '../components/app'
+import Month from '../components/Month';
 
 const Routes = () => {
     return (
-        <BrowserRouter>
-            <Route path='/' component={App}/>
-        </BrowserRouter>
+        <Switch>
+            <Route path="/:year/:month" component={Month}/>
+            <Route path="/" component={Month}/>
+        </Switch>
     )
 };
 
