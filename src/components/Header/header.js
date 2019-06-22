@@ -9,8 +9,8 @@ export default class header extends Component {
     render() {
       return (
           <React.Fragment>
-              <HeaderWeekDays />
               <HeaderMonth />
+              <HeaderWeekDays />
           </React.Fragment>
       )
     }

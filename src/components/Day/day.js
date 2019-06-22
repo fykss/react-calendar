@@ -7,24 +7,11 @@ import * as actions from "../../store/actions";
 import Reminder from './DayEvent'
 import DayEventForm from './DayEventForm'
 
-const defaultColor = "#000";
-
 class Day extends React.Component {
     state = {
         editReminder: {
-            id: null,
-            description: null,
-            color: defaultColor
+            id: null
         }
-    };
-
-    handleSetColor = data => {
-        this.setState({
-            editReminder: {
-                ...this.state.editReminder,
-                color: data.color
-            }
-        });
     };
 
     handleSetEdit = reminder => {
@@ -48,7 +35,6 @@ class Day extends React.Component {
             const payload = {
                 date: this.props.date,
                 description: description,
-                color: this.state.editReminder.color || defaultColor
             };
 
             if (update.id) {
@@ -75,20 +61,18 @@ class Day extends React.Component {
             <article className={cssClasses}>
                 {!this.props.editDay && (
                     <button
-                        className="btn-new-reminder"
+                        className="btn btn-new-reminder"
                         onClick={() => this.props.handleSetEditDay(this.props.day)}
                     >
-                        <i className="fas fa-plus-circle" />
+                        <i className="fas fa-plus fa-2x"/>
                     </button>
                 )}
 
                 {this.props.editDay === this.props.day ? (
                     <DayEventForm
                         reminder={this.state.editReminder}
-                        handleSetColor={this.handleSetColor}
                         handleSetEditDay={this.props.handleSetEditDay}
                         handleCreateUpdateReminder={this.handleCreateUpdateReminder}
-                        defaultColor={defaultColor}
                     />
                 ) : (
                     <React.Fragment>

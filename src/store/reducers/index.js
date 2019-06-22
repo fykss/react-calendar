@@ -4,36 +4,34 @@ import uniqueId from "uuid/v1";
 const initialState = {};
 
 const createReminder = (prevState, action) => {
-    const reminder = {
+    const event = {
         id: uniqueId(),
-        description: action.reminder.description
+        description: action.event.description
     };
 
     return {
         ...prevState,
-        [action.reminder.date]: prevState[action.reminder.date]
-            ? prevState[action.reminder.date].concat(reminder)
-            : [reminder]
+        [action.event.date]: prevState[action.event.date]
+            ? prevState[action.event.date].concat(event)
+            : [event]
     };
 };
 
 const updateReminder = (prevState, action) => {
-    const reminders = [];
-    [...prevState[action.reminder.date]].forEach(reminder => {
-        if (action.reminder.id === reminder.id) {
-            reminder = {
-                id: reminder.id,
-                time: action.reminder.time,
-                description: action.reminder.description,
-                color: action.reminder.color
+    const events = [];
+    [...prevState[action.event.date]].forEach(event => {
+        if (action.event.id === this.event.id) {
+            event = {
+                id: this.event.id,
+                description: action.event.description,
             };
         }
-        reminders.push(reminder);
+        events.push(event);
     });
 
     return {
         ...prevState,
-        [action.reminder.date]: reminders
+        [action.event.date]: events
     };
 };
 

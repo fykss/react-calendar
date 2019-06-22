@@ -1,16 +1,16 @@
 import * as actionTypes from "./actionTypes";
 
-const createReminderAction = reminder => {
+const createReminderAction = event => {
     return {
         type: actionTypes.CREATE_REMINDER,
-        reminder
+        event
     };
 };
 
-const updateReminderAction = reminder => {
+const updateReminderAction = event => {
     return {
         type: actionTypes.UPDATE_REMINDER,
-        reminder: reminder
+        event
     };
 };
 

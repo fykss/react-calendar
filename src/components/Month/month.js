@@ -103,7 +103,7 @@ export default class Month extends Component {
                     prevMonth={this.state.prevMonth}
                 />
                 <HeaderWeekDays days={weekdays}/>
-                <section className="container days d-flex flex-wrap">{days}</section>
+                <section className="days d-flex flex-wrap">{days}</section>
             </div>
         );
     }

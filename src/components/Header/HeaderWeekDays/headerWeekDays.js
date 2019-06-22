@@ -1,8 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './headerWeekDays.scss'
 
-export default class headerWeekDays extends Component {
-    render() {
-        return <div className="component-header-week-days">Hello! component headerWeekDays</div>;
-    }
-}
+const headerWeekDays = props => (
+    <header className="weekdays d-flex flex-wrap">
+        {props.days.map((weekday, i) => (
+            <strong key={i}>{weekday}</strong>
+        ))}
+    </header>
+);
+
+export default headerWeekDays;
+
